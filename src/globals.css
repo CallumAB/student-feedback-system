@@ -4,3 +4,12 @@
     --text-color-dark: #000000;
     --text-color-light: #ffffff;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
