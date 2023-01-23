@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import "../styles/survey.css"
+import Primarybutton from '../components/PrimaryButton';
+import Secondarybutton from '../components/SecondaryButton';
 
 const Survey = () => {
 
@@ -51,21 +54,39 @@ const Survey = () => {
         </div>
 
     const radioOptionQuestion = 
-        <div className='question-options'>
+        
+        <div className="radio-option-list">
             {questions[currentQuestion].answerOptions.map((answerOption) => 
-            <div>
+            <div className="radio-option-item">
                 <input type="radio" name="rad"></input>
                 <label>{answerOption}</label>
             </div>
             )}
         </div>
+        
 
     const radioScaleQuestion =
-        <div>
-            <input type="radio" name="rad"></input>
-            <label>One</label>
-            <input type="radio" name="rad"></input>
-            <label>Two</label>
+        <div className="radio-scale-list">
+            <div className="radio-scale-item">
+                <input type="radio" name="rad"></input>
+                <label>1</label>
+            </div>
+            <div className="radio-scale-item">
+                <input type="radio" name="rad"></input>
+                <label>2</label>
+            </div>
+            <div className="radio-scale-item">
+                <input type="radio" name="rad"></input>
+                <label>3</label>
+            </div>
+            <div className="radio-scale-item">
+                <input type="radio" name="rad"></input>
+                <label>4</label>
+            </div>
+            <div className="radio-scale-item">
+                <input type="radio" name="rad"></input>
+                <label>5</label>
+            </div>
         </div>
 
     let questionOption;
@@ -79,17 +100,35 @@ const Survey = () => {
         questionOption = openEndedQuestion;  
     }
 
+    //Next/Finish Button
+    let nextButton;
+    if(currentQuestion < questions.length - 1){
+        nextButton = <Primarybutton
+        text = "Next"
+        width = "100%"
+        onClick = {nextQuestion}
+        />
+    }else{
+        nextButton = <Primarybutton
+        text = "Finish"
+        width = "100%"
+        onClick = {nextQuestion}
+        />
+    }
+
     //Return
     return (
-        <div>
-            <div className='question-card'>
+        <div className="survey-container">
+            <text>Module name...</text>
+            <div className="survey-card">
                 <text className='question-text'>
                     {questions[currentQuestion].questionText} #{currentQuestion}
                 </text>
+                <hr/>
                 {questionOption}
+            {nextButton}
+            <Secondarybutton text = "Back" width = "100%" onClick = {lastQuestion}/>
             </div>
-            <button onClick={lastQuestion}>Back</button>
-            <button onClick={nextQuestion}>Next</button>
         </div>
     );
 };
