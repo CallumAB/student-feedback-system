@@ -12,14 +12,8 @@ import SecondaryButton from "./components/SecondaryButton";
 
 function App() {
 
-  const test = () => {
-    console.log("Works")
-  }
-
   return (
     <div>
-      <PrimaryButton text="Primary" width="100%" onClick={test}/>
-      <SecondaryButton text="Secondary" width="100%"/>
       <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
