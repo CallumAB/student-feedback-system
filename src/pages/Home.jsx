@@ -1,9 +1,15 @@
 import React from 'react';
 import {  signOut } from "firebase/auth";
-import {auth} from '../firebase';
+import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
+
  
 const Home = () => {
+
+    const { user } = UserAuth();
+    console.log("Home", user)
+
     const navigate = useNavigate();
     const handleLogout = () => {               
         signOut(auth).then(() => {
@@ -17,7 +23,8 @@ const Home = () => {
 
     return(
             <nav>
-                <p>Welcome Home</p>
+                <p>Home page</p>
+                <p>User id:{user.uid}</p>
  
                 <div>
         			<button onClick={handleLogout}>Logout</button>
