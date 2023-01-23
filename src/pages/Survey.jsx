@@ -119,11 +119,11 @@ const Survey = () => {
     //Return
     return (
         <div className="survey-container">
-            <text>Module name...</text>
+            <p>Module name...</p>
             <div className="survey-card">
-                <text className='question-text'>
+                <p className='question-text'>
                     {questions[currentQuestion].questionText} #{currentQuestion}
-                </text>
+                </p>
                 <hr/>
                 {questionOption}
             {nextButton}
