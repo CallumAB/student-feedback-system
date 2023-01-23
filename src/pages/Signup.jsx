@@ -5,13 +5,11 @@ import { auth } from '../firebase';
 
 const Signup = () => {
     const navigate = useNavigate();
- 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
  
     const onSubmit = async (e) => {
       e.preventDefault()
-     
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
@@ -31,59 +29,36 @@ const Signup = () => {
     }
  
   return (
-    <main >        
-        <section>
+    
+    <div>                  
+        <h1>Student feedback </h1>                                                                            
+        <form>                                                                                            
             <div>
-                <div>                  
-                    <h1> Student feedback </h1>                                                                            
-                    <form>                                                                                            
-                        <div>
-                            <label htmlFor="email-address">
-                                Email address
-                            </label>
-                            <input
-                                type="email"
-                                label="Email address"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}  
-                                required                                    
-                                placeholder="Email address"                                
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="password">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                label="Create password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)} 
-                                required                                 
-                                placeholder="Password"              
-                            />
-                        </div>                                             
-                        
-                        <button
-                            type="submit" 
-                            onClick={onSubmit}                        
-                        >  
-                            Sign up                                
-                        </button>
-                                                                     
-                    </form>
-                   
-                    <p>
-                        Already have an account?{' '}
-                        <NavLink to="/login" >
-                            Sign in
-                        </NavLink>
-                    </p>                   
-                </div>
+                <label>Email address </label>
+                <input
+                    type="email"
+                    placeholder="Email address"
+                    onChange={(e) => setEmail(e.target.value)}                  
+                />
             </div>
-        </section>
-    </main>
+
+            <div>
+                <label>Password </label>
+                <input
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}       
+                />
+            </div>                                             
+            
+            <button onClick={onSubmit}>Sign up</button>                                                   
+        </form>
+        
+        <p>
+            Already have an account?{' '}
+            <NavLink to="/login" >Sign in</NavLink>
+        </p>                   
+    </div>
   )
 }
  
