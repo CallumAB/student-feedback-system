@@ -19,17 +19,13 @@ const PrimaryButton = (props) => {
         padding: "0 25px",
         position: "relative",
         textAlign: "center",
-        userSelect: "none",
-        
+        userSelect: "none",  
     }
 
     return (
-    <button 
-    style={buttonStyle} 
-    onClick={props.onClick}
-    >
+        <button style={buttonStyle} onClick={props.onClick}>
         {props.text}
-    </button>
+        </button>
   )
 }
 
