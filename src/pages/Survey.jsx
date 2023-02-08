@@ -7,7 +7,7 @@ const Survey = () => {
 
     //Test Data
 
-    const questions = [{
+    const testQuestionsOne = [{
         questionType: 1,
         questionText: "Radio option question",
         answerOptions: [
@@ -29,6 +29,55 @@ const Survey = () => {
         answerOptions: [],
     },
 ]
+
+const testQuestionsTwo = [
+{
+    questionType: 2,
+    questionText: "One a scale of 1 to 5, how good are teaching staff at explaining things?",
+    answerOptions: [],
+},
+{
+    questionType: 1,
+    questionText: "How often do teaching staff make the subject engaging?",
+    answerOptions: [
+        "never",
+        "not that often",
+        "often",
+        "very often",
+        "all of the time"
+    ]
+},
+{
+    questionType: 1,
+    questionText: "How often is the course intellectually stimulating?",
+    answerOptions: [
+        "never",
+        "not that often",
+        "often",
+        "very often",
+        "all of the time"
+    ]
+},
+{
+    questionType: 1,
+    questionText: "How often does your course challenge you to achieve your best work?",
+    answerOptions: [
+        "never",
+        "not that often",
+        "often",
+        "very often",
+        "all of the time"
+    ]
+},
+{
+    questionType: 3,
+    questionText: "Given a chance, what is one change that you would like to see?",
+    answerOptions: [],
+},
+]
+
+    const questions = testQuestionsTwo;
+
 
     //State
 
@@ -125,9 +174,12 @@ const Survey = () => {
                     {questions[currentQuestion].questionText} #{currentQuestion}
                 </p>
                 <hr/>
-                {questionOption}
-            {nextButton}
-            <Secondarybutton text = "Back" width = "100%" onClick = {lastQuestion}/>
+                <div className='question-option'>{questionOption}</div>
+
+                <div className='buttons'>
+                    {nextButton}
+                    <Secondarybutton text = "Back" width = "100%" onClick = {lastQuestion}/>
+                </div>
             </div>
         </div>
     );
