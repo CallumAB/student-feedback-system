@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 
-const ContactDropdown = (props) => {
-
-    //Test Data
-    
-
+const ModuleDropdown = (props) => {
     //State
     const [open, setOpen] = useState(false);
 
+    //Helpers
     const handleOpen = () => {
         setOpen(!open);
     }
@@ -17,20 +14,21 @@ const ContactDropdown = (props) => {
         props.buttonClick(e);
     }
 
-    console.log("Contact data", props.data[1].id)
-
     //Dropdown Items
+    //  Maps
     const dropDownItems =
         <div className="menu">
             {props.data.map((data) =>
             <li>
-                <button key={data.id} onClick={handleClick}>{data.name}</button>
+                <button id={data.id} onClick={handleClick}>{data.module}</button>
             </li>
             )}
         </div>
 
+
+    //Return
     return (   
-        <div>
+        <div className='module-dropdown'>
             <button onClick={handleOpen}>{props.text}</button>
             {open ? (
                 <ul >
@@ -41,4 +39,4 @@ const ContactDropdown = (props) => {
     )
 }
 
-export default ContactDropdown;
+export default ModuleDropdown;
