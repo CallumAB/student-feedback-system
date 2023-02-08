@@ -1,0 +1,15 @@
+.contact-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right:10%;
+}
+
+.module-dropdown {
+    align-self: flex-start;
+}
+
+.button {
+    
+}
