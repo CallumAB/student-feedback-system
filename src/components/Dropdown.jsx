@@ -1,26 +1,20 @@
 import React, { useState } from 'react'
 
 const Dropdown = (props) => {
-
-    //Test Data
-    
-
     //State
     const [open, setOpen] = useState(false);
 
+    //Helpers
     const handleOpen = () => {
-        setOpen(!open)
+        setOpen(!open);
     }
 
     const handleClick = (e) => {
-
-        console.log("Im here")
         props.buttonClick(e);
+        setOpen(!open);
     }
 
-    
-
-    //Dropdown Items
+    //Element Variables
     const dropDownItems =
         <div className="menu">
             {props.items.map((item) =>
@@ -29,8 +23,6 @@ const Dropdown = (props) => {
             </li>
             )}
         </div>
-        
-    console.log("Dropdown data", props.data)
 
     return (   
         <div>
