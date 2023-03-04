@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {collection, doc, getDocs} from "firebase/firestore";
 import {db} from "../../../firebase"
 
-import Dropdown from '../../../components/Dropdown'
+import Dropdown from '../../../components/dropdown/Dropdown'
 import ModuleContact from './ModuleContact';
 
 const CourseContact = () => {
@@ -58,7 +58,7 @@ const CourseContact = () => {
     //Return
     return (
         <div>
-            <div>Choose a course</div>
+            <p>Choose a course:</p>
             <Dropdown text={selectedCourse} items={courseOptions} buttonClick={courseClick}/>
             {/* Check if a course is selected before rendering module dropdown */}
             {selectedCourse !== defaultCourseValue
