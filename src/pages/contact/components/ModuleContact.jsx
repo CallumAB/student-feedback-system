@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../../firebase"
 
-import Dropdown from '../../../components/Dropdown'
+import Dropdown from '../../../components/dropdown/Dropdown'
+import ContactCard from './ContactCard';
 
 const ModuleContact = (props) => {
     //State
@@ -62,12 +63,12 @@ const ModuleContact = (props) => {
     //Element Variables
     const displayContacts = 
         selectedModuleContacts.map((contact) =>
-            <div>
-                <div>fname: {contact.fname}</div>
-                <div>lname: {contact.lname}</div>
-                <div>email: {contact.email}</div>
-                <div>userid: {contact.userid}</div>
-            </div>
+            <ContactCard 
+                fname={contact.fname} 
+                lname={contact.lname}
+                title="placeholder title"
+                email={contact.email}
+            />
         )
 
 
@@ -75,12 +76,12 @@ const ModuleContact = (props) => {
     //Return
     return (
         <div> 
-            <div>Choose a module</div>
+            <p>Choose a module:</p>
             <Dropdown text={selectedModule} items={moduleOptions} buttonClick={moduleClick}/>
             {selectedModule !== defaultModuleValue
             ? 
             <div>
-                <div>Module Contacts</div>
+                <p>Contacts...</p>
                 {displayContacts}
             </div>
             : null
