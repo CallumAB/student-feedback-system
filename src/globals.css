@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root {
-    --primary-color: #009EE2;
+    --primary-color: #0076A6;
     --secondary-color: #621360;
-    --text-color-dark: #000000;
+    --text-color-dark: #0C1C36;;
     --text-color-light: #ffffff;
-    font-family: 'Open Sans', sans-serif;
 }
 
 * {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color-dark);
     box-sizing: border-box;
-}
-
-body {
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #FFFBF2;
+    }

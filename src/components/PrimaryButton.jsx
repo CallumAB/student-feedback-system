@@ -3,17 +3,18 @@ import React from 'react'
 const PrimaryButton = (props) => {
 
    const buttonStyle = {
-        backgroundColor: "#009EE2",
-        borderRadius: "6px",
+        backgroundColor: "#621360",
+        borderRadius: "5px",
         borderWidth: "0",
         boxSizing: "border-box",
         color: "#ffffff",
         cursor: "pointer",
-        fontSize: "100%",
+        fontSize: props.fontSize,
+        fontWeight: "bold",
         width: props.width,
-        height: "44px",
+        minWidth: "110px",
+        minHeight: "36px",
         lineHeight: "1.15",
-        margin: "12px 0 0",
         outline: "none",
         overflow: "hidden",
         padding: "0 25px",
