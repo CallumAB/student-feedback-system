@@ -6,31 +6,7 @@ import Secondarybutton from '../components/SecondaryButton';
 const Survey = () => {
 
     //Test Data
-
-    const testQuestionsOne = [{
-        questionType: 1,
-        questionText: "Radio option question",
-        answerOptions: [
-            "yes",
-            "no",
-            "maybe",
-            "fine",
-            "okay"
-        ]
-    },
-    {
-        questionType: 2,
-        questionText: "Radio scale question",
-        answerOptions: [],
-    },
-    {
-        questionType: 3,
-        questionText: "Open ended question",
-        answerOptions: [],
-    },
-]
-
-const testQuestionsTwo = [
+const questions = [
 {
     questionType: 2,
     questionText: "One a scale of 1 to 5, how good are teaching staff at explaining things?",
@@ -75,9 +51,6 @@ const testQuestionsTwo = [
     answerOptions: [],
 },
 ]
-
-    const questions = testQuestionsTwo;
-
 
     //State
 
