@@ -1,0 +1,20 @@
+nav {
+    background-color: var(--primary-color);
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    
+    box-sizing: border-box;
+}
+
+nav ul li {
+    list-style: none;
+    text-decoration: none;
+    color: white; 
+}
+
+nav ul li:hover {
+    background-color: grey;
+}
