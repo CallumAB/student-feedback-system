@@ -1,17 +1,21 @@
 import Login from "./pages/Login";
 import Signup from "./pages/Signup"
-import Home from "./pages/Home";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
 import Contact from "./pages/contact/Contact"
 import Survey from "./pages/Survey"
 import {Routes, Route} from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
+import './globals.css'
+
 function App() {
 
   return (
     <div>
       <AuthProvider>
+        <Navbar/>
         <Routes>
               <Route path='/login' element={<Login/>}/>
               <Route path='/signup' element={<Signup/>}/>    
