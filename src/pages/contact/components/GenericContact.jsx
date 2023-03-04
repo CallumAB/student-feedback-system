@@ -2,7 +2,10 @@ import React from 'react'
 
 const GenericContact = (props) => {
     return (
-        <div>GenericContact Option: {props.category}</div>
+        <div>
+            <p>Select a reason:</p>
+            {props.category}
+        </div>
     )
 }
 
