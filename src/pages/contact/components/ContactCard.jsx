@@ -6,8 +6,19 @@ const ContactCard = (props) => {
     <div className="contact-card">
         <p><b>{props.fname + " " + props.lname}</b></p>
         <p>{props.title}</p>
-        <p><b>Email: </b>{props.email}</p>
-        <PrimaryButton text="Chat now"/>
+        {props.email
+          ? <p><b>Email: </b>{props.email}</p>
+          : null
+        }
+        {props.number 
+          ? <p><b>Tel Number: </b>{props.number}</p>
+          : null
+        }
+        {props.uid 
+          ? <PrimaryButton text="Chat now"/>
+          : null
+        }
+        
     </div>
   )
 }
