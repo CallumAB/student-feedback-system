@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './dropdown.css'
 
 const Dropdown = (props) => {
     //State
@@ -16,21 +17,20 @@ const Dropdown = (props) => {
 
     //Element Variables
     const dropDownItems =
-        <div className="menu">
+        <ul className="dropdown-list" >
+            <div className="dropdown-divider"/>
             {props.items.map((item) =>
-            <li>
-                <button onClick={handleClick}>{item}</button>
-            </li>
+                <li onClick={handleClick}>{item}</li>
             )}
-        </div>
+        </ul>
 
     return (   
-        <div>
-            <button onClick={handleOpen}>{props.text}</button>
+        <div className="dropdown-container">
+            <button className="dropdown-button" onClick={handleOpen}>{props.text}</button>
             {open ? (
-                <ul >
+                <div>
                     {dropDownItems}
-                </ul>
+                </div>
             ) : null}
         </div>
     )
