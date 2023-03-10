@@ -3,10 +3,12 @@ import Signup from "./pages/Signup"
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Contact from "./pages/contact/Contact"
-import Survey from "./pages/Survey"
+import Survey from "./pages/surveys/Survey"
 import {Routes, Route} from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+
+import FindSurvey from "./pages/surveys/components/FindSurvey";
 
 import './globals.css'
 
@@ -17,6 +19,7 @@ function App() {
       <AuthProvider>
         <Navbar/>
         <Routes>
+              <Route path='/findsurvey' element={<FindSurvey/>}/>
               <Route path='/login' element={<Login/>}/>
               <Route path='/signup' element={<Signup/>}/>    
               <Route path='/' element={<Home/>}/>

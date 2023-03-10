@@ -1,0 +1,30 @@
+.radio-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .form-control {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+} */
+
+.form-control {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1.5px solid var(--text-color-dark);
+    accent-color: var(--text-color-dark);
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+.form-control input:checked{
+    background-color: red;
+}

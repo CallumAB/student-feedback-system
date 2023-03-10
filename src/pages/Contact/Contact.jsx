@@ -5,20 +5,21 @@ import {db} from "../../firebase"
 
 //Components
 import Dropdown from '../../components/dropdown/Dropdown';
-import CourseContact from './components/CourseContact';
-import ModuleContact from './components/ModuleContact';
-import GenericContact from './components/GenericContact';
+import CourseContact from './components/coursemodule/CourseContact';
+import ModuleContact from './components/coursemodule/ModuleContact';
+import GenericContact from './GenericContact';
+import RadioButton from '../../components/radiobutton/RadioButton';
 
 //CSS
 import './contact.css'
 
 const Contact = () => {
     //State
-    const defaultReason = "Select Reason";
-    const [selectedReason, setSelectedReason] = useState(defaultReason);
+    const defaultCategory = "Select Category";
+    const [selectedCategory, setSelectedReason] = useState(defaultCategory);
 
     //Test Data
-    const options = ["Problems with course", "Personal", "Generic Category Two", "Generic Category Three", "Other"]
+    const options = ["Course or Module", "Teaching", "Learning", "Timetabling issues", "Well being", "Legal", "Other"]
 
 
     //Handle clicks
@@ -28,12 +29,12 @@ const Contact = () => {
 
     //Element variables
     let nextOptions;
-    if(selectedReason === defaultReason) {
+    if(selectedCategory === defaultCategory) {
         nextOptions = null;
-    } else if(selectedReason === "Problems with course") {
+    } else if(selectedCategory === "Course or Module") {
         nextOptions = <CourseContact/>
     } else {
-        nextOptions = <GenericContact category={selectedReason}/>
+        nextOptions = <GenericContact category={selectedCategory}/>
     }
 
     //Return
@@ -42,7 +43,7 @@ const Contact = () => {
             <h3>Contact</h3>
             <p>What is your reason for contacting?</p>
             <p>Select a category:</p>
-            <Dropdown text={selectedReason} items={options} buttonClick={reasonClick}></Dropdown>
+            <Dropdown text={selectedCategory} items={options} buttonClick={reasonClick}></Dropdown>
             {nextOptions}
         </div>
     )

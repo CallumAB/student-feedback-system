@@ -3,7 +3,7 @@ import "../styles/survey.css"
 import Primarybutton from '../components/PrimaryButton';
 import Secondarybutton from '../components/SecondaryButton';
 
-const Survey = () => {
+const OldSurvey = () => {
 
     //Test Data
 const questions = [
@@ -160,4 +160,4 @@ const questions = [
 
 
 
-export default Survey;
+export default OldSurvey;

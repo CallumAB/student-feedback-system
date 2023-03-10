@@ -20,7 +20,8 @@ const PrimaryButton = (props) => {
         padding: "0 25px",
         position: "relative",
         textAlign: "center",
-        userSelect: "none",  
+        userSelect: "none",
+        marginTop: props.marginTop,
     }
 
     return (

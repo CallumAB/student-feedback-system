@@ -15,15 +15,18 @@ const Dropdown = (props) => {
         setOpen(!open);
     }
 
+    
     //Element Variables
     const dropDownItems =
         <ul className="dropdown-list" >
             <div className="dropdown-divider"/>
             {props.items.map((item) =>
-                <li onClick={handleClick}>{item}</li>
+                <li key={item} onClick={handleClick}>{item}</li>
             )}
         </ul>
 
+
+    //Return
     return (   
         <div className="dropdown-container">
             <button className="dropdown-button" onClick={handleOpen}>{props.text}</button>
