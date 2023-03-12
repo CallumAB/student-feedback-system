@@ -4,10 +4,10 @@ import {collection, doc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase"
 
 //Components 
-import Dropdown from '../dropdown/Dropdown';
+import Dropdown from './Dropdown';
 
 
-const FindModule = (props) => {
+const ModuleDropdown = (props) => {
 
     //State
     const defaultModuleValue = "Select module";
@@ -68,7 +68,7 @@ const FindModule = (props) => {
     //Return
     return (
         <div>
-            <p>Choose a module:</p>
+            <h4>Choose a module:</h4>
             <Dropdown
                 text={selectedModule} 
                 items={moduleOptions}
@@ -79,4 +79,4 @@ const FindModule = (props) => {
 }
 
 
-export default FindModule
+export default ModuleDropdown;

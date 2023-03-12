@@ -3,7 +3,7 @@ import React from 'react'
 const PrimaryButton = (props) => {
 
    const buttonStyle = {
-        backgroundColor: "#621360",
+        backgroundColor: "#F2AD5F",
         borderRadius: "5px",
         borderWidth: "0",
         boxSizing: "border-box",

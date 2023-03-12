@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {collection, doc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase"
 
-import Dropdown from '../dropdown/Dropdown';
-import FindModule from './FindModule';
+import Dropdown from './Dropdown';
 
-const FindCourse = (props) => {
+const CourseDropdown = (props) => {
     //State
     const [selectedCourse, setSelectedCourse] = useState(props.placeholder);
     const [coursesData, setCoursesData] = useState([]);
@@ -59,7 +58,7 @@ const FindCourse = (props) => {
     //Return
     return (
         <div>
-            <p>Choose a course:</p>
+            <h4>Choose a course:</h4>
             <Dropdown
                 text={selectedCourse} 
                 items={courseOptions}
@@ -69,4 +68,4 @@ const FindCourse = (props) => {
     )
 }
 
-export default FindCourse
+export default CourseDropdown;

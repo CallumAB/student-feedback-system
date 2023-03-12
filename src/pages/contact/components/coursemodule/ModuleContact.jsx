@@ -78,7 +78,7 @@ const ModuleContact = (props) => {
     //Return
     return (
         <div> 
-            <p>Choose a module:</p>
+            <h4>Choose a module:</h4>
             <Dropdown text={selectedModule} items={moduleOptions} buttonClick={moduleClick}/>
             {selectedModule !== defaultModuleValue
             ? 

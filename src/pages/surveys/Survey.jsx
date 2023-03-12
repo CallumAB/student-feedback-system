@@ -7,9 +7,12 @@ import FindSurvey from './components/FindSurvey';
 const Survey = () => {
   //State
   const [surveyStarted, setSurveyStarted] = useState(false);
+  const [surveyData, setSurveyData] = useState(false);
 
   //Callback functions
-  const startSurvey = (survey) => {
+  const startSurvey = (surveyData) => {
+    console.log("Survey page: ", surveyData)
+    setSurveyData(surveyData);
     setSurveyStarted(!surveyStarted)
   }
 
@@ -17,7 +20,7 @@ const Survey = () => {
   return (
     <div>
       {surveyStarted
-        ? <StartSurvey/>
+        ? <StartSurvey surveyData={surveyData}/>
         : <FindSurvey callback={startSurvey}/>
       }
     </div>

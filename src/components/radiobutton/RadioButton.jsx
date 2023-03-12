@@ -18,4 +18,4 @@ const RadioButton = (props) => {
     )
 }
 
-export default RadioButton
+export default RadioButton;

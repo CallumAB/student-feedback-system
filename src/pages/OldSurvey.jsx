@@ -158,6 +158,4 @@ const questions = [
     );
 };
 
-
-
 export default OldSurvey;

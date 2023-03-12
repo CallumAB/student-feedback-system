@@ -58,7 +58,7 @@ const CourseContact = () => {
     //Return
     return (
         <div>
-            <p>Choose a course:</p>
+            <h4>Choose a course:</h4>
             <Dropdown text={selectedCourse} items={courseOptions} buttonClick={courseClick}/>
             {/* Check if a course is selected before rendering module dropdown */}
             {selectedCourse !== defaultCourseValue

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 //Components
-import FindCourse from '../../../components/fetch/FindCourse'
-import FindModule from '../../../components/fetch/FindModule'
+import CourseDropdown from '../../../components/dropdown/CourseDropdown'
+import ModuleDropdown from '../../../components/dropdown/ModuleDropdown'
 import SurveyCard from './SurveyCard'
 
 
-const FindSurvey = () => {
+const FindSurvey = (props) => {
 
   //State
   const defaultCourseValue = "Select course";
@@ -29,6 +29,12 @@ const FindSurvey = () => {
     setSelectedModule(selectedModule);
   }
 
+    //Retrieves surveydata from contact card and starts survey
+  const startSurvey = (surveyData) => {
+    console.log("Find Survey Page: ", surveyData);
+    props.callback(surveyData);
+  }
+
   //Helper functions
   const displayCourseSurveys = () => {
     if(selectedCourseData.surveys !== undefined){
@@ -36,6 +42,8 @@ const FindSurvey = () => {
       <SurveyCard
         surveytitle={survey.title}
         description={survey.description}
+        surveydata={survey}
+        callback={startSurvey}
       />
     )
     } else {
@@ -49,6 +57,8 @@ const FindSurvey = () => {
       <SurveyCard
         surveytitle={survey.surveytitle}
         description={survey.description}
+        surveydata={survey}
+        callback={startSurvey}
       />
     )
     } else {
@@ -61,14 +71,14 @@ const FindSurvey = () => {
   return (
     <div>
       <h3>Find Surveys</h3>
-      <FindCourse
+      <CourseDropdown
         placeholder={defaultCourseValue}
         callback={courseCallback}
       />
 
     {/* Display module dropdown when course dropdown is filled */}
     {selectedCourse !== defaultCourseValue
-      ? <FindModule 
+      ? <ModuleDropdown
           callback={moduleCallback}
           docpath={"courses/" + selectedCourseData.documentid + "/modules"}
         />
@@ -78,6 +88,7 @@ const FindSurvey = () => {
     {/* Display available surveys when both dropdowns are filled */}
     {(selectedCourse !== defaultCourseValue && selectedModule !== defaultModuleValue)
     ? <div>
+        <h4>Surveys...</h4>
         {displayCourseSurveys()}
         {displayModuleSurveys()}
       </div>

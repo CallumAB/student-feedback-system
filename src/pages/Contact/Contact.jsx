@@ -42,7 +42,7 @@ const Contact = () => {
         <div className="contact-page">
             <h3>Contact</h3>
             <p>What is your reason for contacting?</p>
-            <p>Select a category:</p>
+            <h4>Select a category:</h4>
             <Dropdown text={selectedCategory} items={options} buttonClick={reasonClick}></Dropdown>
             {nextOptions}
         </div>

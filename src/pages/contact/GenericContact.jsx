@@ -74,7 +74,7 @@ const GenericContact = (props) => {
 
     return (
         <div>
-            <p>Select a problem:</p>
+            <h4>Select a problem:</h4>
             <RadioButton onClick={radioButtonClick} options={problemOptions}/>
             {selectedProblem !== defaultProblem
             ? 
