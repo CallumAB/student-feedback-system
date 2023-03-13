@@ -58,9 +58,9 @@ const TakeSurvey = (props) => {
   let displayAnswers;
   if(props.surveyData.questions[currentQuestionIndex].questiontype === "open"){
     displayAnswers = 
-        <input placeholder="Answer here..." value={openInput} onInput={e => setOpenInput(e.target.value)}></input>
+        <input className="open-question-input-box" placeholder="Answer here..." value={openInput} onInput={e => setOpenInput(e.target.value)}></input>
   } else if(props.surveyData.questions[currentQuestionIndex].questiontype === "closed"){
-    displayAnswers = 
+    displayAnswers =
       <RadioButton options={props.surveyData.questions[currentQuestionIndex].answers} onClick={radioButtonClick}/>
   } else {
     console.log("Invalid question type");
@@ -88,7 +88,7 @@ const TakeSurvey = (props) => {
     <div>
       <h3>{props.surveyData.surveytitle}</h3>
       <p>{props.surveyData.questions[currentQuestionIndex].questiontext}</p>
-      <div>{displayAnswers}</div>
+      <div className="question-options">{displayAnswers}</div>
       <div>
         {nextButton}
         <Secondarybutton text="Back" width="100%" onClick={previousQuestion}/>

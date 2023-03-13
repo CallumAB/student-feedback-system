@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {  signOut } from "firebase/auth";
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 import './navbar.css';
 
 const Navbar = () => {
-   console.log(auth.currentUser)
+
+    const [open, setOpen] = useState(false);
+
+
+    console.log(auth.currentUser)
 
     const navigate = useNavigate();
     const handleLogout = () => {               

@@ -1,6 +1,7 @@
 .survey-page {
     margin-left: 20px;
     margin-right: 20px;
+    height: 100vh;
 }
 
 .survey-card {
@@ -32,4 +33,9 @@
 .survey-card-button {
     margin-left: 20px;
     padding-bottom: 10px;
+}
+
+.question-options {
+    margin-top: auto;
+    margin-bottom: auto;
 }
