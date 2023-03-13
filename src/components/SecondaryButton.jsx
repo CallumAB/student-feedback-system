@@ -3,13 +3,13 @@ import React from 'react'
 const Secondarybutton = (props) => {
 
     const buttonStyle = {
-        backgroundColor: "white",
+        backgroundColor: "#FFFBF2",
         borderRadius: "6px",
         borderWidth: "0",
         boxSizing: "border-box",
         color: "#1F2836",
         cursor: "pointer",
-        fontSize: "16px",
+        fontSize: "1rem",
         width: props.width,
         height: "36px",
         lineHeight: "1.15",

@@ -6,27 +6,30 @@ const ContactCard = (props) => {
     <div className="contact-card">
       {props.fname
         ? <div>
-            <p><b>{props.fname + " " + props.lname}</b></p>
-            <p>{props.title}</p>
+            <p className='contact-card-title'>{props.fname + " " + props.lname}</p>
+            <p className='contact-card-misc'>{props.title}</p>
           </div>
-        : <p><b>{props.title}</b></p>
+        : <p className='contact-card-title'>{props.title}</p>
       }
       
       {props.description
-        ? <p>{props.description}</p>
+        ? <p className='contact-card-misc'>{props.description}</p>
         : null
       }
 
       {props.email
-        ? <p><b>Email: </b>{props.email}</p>
+        ? <p className='contact-card-misc'><b>Email: </b>{props.email}</p>
         : null
       }
       {props.number 
-        ? <p><b>Tel Number: </b>{props.number}</p>
+        ? <p className='contact-card-misc'><b>Tel Number: </b>{props.number}</p>
         : null
       }
       {props.userid 
-        ? <PrimaryButton text="Chat now"/>
+        ? 
+        <div className='contact-card-button'>
+          <PrimaryButton text="Chat now"/>
+        </div>
         : null
       }
       

@@ -36,3 +36,12 @@
     
 }
 
+.homepage-block {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.homepage-block img {
+    margin-right: auto;
+    margin-left: -1.25rem;
+}

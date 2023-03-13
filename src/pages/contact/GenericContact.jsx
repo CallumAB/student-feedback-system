@@ -38,14 +38,18 @@ const GenericContact = (props) => {
 
         //Calls the fetchPost function once when the component is rendered
         //and when props.courseKey changes
-    useEffect(()=>{
+    useEffect(() => {
         setSelectedProblem(defaultProblem);
         fetchPost();
     }, [props.category]);
 
+        
+    useEffect(() => {
+        setSelectedProblemContacts(getSelectedProblemContacts());
+    }, [selectedProblem])
+
     const radioButtonClick = (e) => {
         setSelectedProblem(e.target.id);
-        setSelectedProblemContacts(getSelectedProblemContacts());
     }
 
     const getSelectedProblemContacts = () => {

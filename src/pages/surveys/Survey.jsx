@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import './survey.css'
 
 //Components
-import StartSurvey from './components/StartSurvey';
+import TakeSurvey from './components/TakeSurvey';
 import FindSurvey from './components/FindSurvey';
 
 const Survey = () => {
@@ -18,9 +19,9 @@ const Survey = () => {
 
   //Return
   return (
-    <div>
+    <div className="survey-page">
       {surveyStarted
-        ? <StartSurvey surveyData={surveyData}/>
+        ? <TakeSurvey surveyData={surveyData}/>
         : <FindSurvey callback={startSurvey}/>
       }
     </div>

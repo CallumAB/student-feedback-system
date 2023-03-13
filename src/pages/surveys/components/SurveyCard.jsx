@@ -11,18 +11,21 @@ const SurveyCard = (props) => {
 
     //Return
     return (
-        <div className="contact-card">
+        <div className="survey-card">
           {props.surveytitle
-            ? <p>{props.surveytitle}</p>
+            ? <p className="survey-card-title">{props.surveytitle}</p>
             : null            
           }
           
           {props.description
-            ? <p>{props.description}</p>
+            ? <p className="survey-card-description">{props.description}</p>
             : null
           }
 
-        <PrimaryButton text="Start Survey" onClick={startSurvey}/>
+        <div className="survey-card-button">
+          <PrimaryButton  text="Start Survey" onClick={startSurvey}/>
+        </div>
+        
         </div>
     )
 }

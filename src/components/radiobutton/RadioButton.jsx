@@ -3,8 +3,7 @@ import './radiobutton.css'
 
 const RadioButton = (props) => {
 
-
-
+    //Return
     return (
         <div id="radio-button-options" className='radio-button-container'>
            {props.options.map((option) =>  
@@ -12,7 +11,6 @@ const RadioButton = (props) => {
                     <input onClick={props.onClick} id={option} type="radio" name="radio" ></input>
                     {option}
                 </label>
-            
             )} 
         </div>
     )

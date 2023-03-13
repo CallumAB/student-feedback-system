@@ -83,7 +83,7 @@ const ModuleContact = (props) => {
             {selectedModule !== defaultModuleValue
             ? 
             <div>
-                <p>Contacts...</p>
+                <p><b>Contacts...</b></p>
                 {displayContacts}
             </div>
             : null

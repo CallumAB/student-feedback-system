@@ -4,11 +4,18 @@ import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
-import PrimaryButton from '../../components/PrimaryButton';
-import Secondarybutton from '../../components/SecondaryButton';
 
+//Components
+import PrimaryButton from '../../components/PrimaryButton';
+
+//CSS
 import './home.css';
  
+//SVGS
+import contactSvg from './SVGS/contact.svg';
+import surveySvg from './SVGS/survey.svg';
+
+
 const Home = () => {
 
     const { user } = UserAuth();
@@ -36,23 +43,30 @@ const Home = () => {
 
 
                 <div className="body">
-                    <div>
-                        <h1>Get in contact</h1>
+                    <h1>Get in contact</h1>
+                    <div className="homepage-block">
+                        <div>
                         <p>
-                            We will direct you to the correct contact for whatever problem you may have. 
-                            Just chat to our automated system to get started.
+                            Our system will direct you towards the correct contact for whatever problem you have.
                         </p>
                         <Link to="/Contact">
                             <PrimaryButton text="Chat now"/>
                         </Link>
+                        </div>
+                        <img src={contactSvg} alt="Contact graphic"/>
+                        
                     </div>
 
-                    <div>
-                        <h1>Student Surveys</h1>
-                        <p>Complete student surveys set by the University</p>
-                        <Link to="/Survey">
-                            <PrimaryButton id="button" text="Find Survey"/>
-                        </Link>
+                    <h1>Student Surveys</h1>
+                    <div className="homepage-block">
+                        <div>
+                            <p>Complete student surveys set by the University</p>
+                            <Link to="/Survey">
+                                <PrimaryButton id="button" text="Find Survey"/>
+                            </Link>
+                        </div>
+                        <img src={surveySvg} alt="Survey graphic"/>
+
                     </div>
                 </div>
 
