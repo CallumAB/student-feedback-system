@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {collection, getDocs} from "firebase/firestore";
-import {db} from "../../../../firebase"
+import {db} from "../firebase"
 
-import Dropdown from '../../../../components/dropdown/Dropdown'
-import ContactCard from '../displaycontacts/ContactCard';
+import Dropdown from '../components/dropdown/Dropdown'
+import ContactCard from '../pages/contact/components/ContactCard';
 
 const ModuleContact = (props) => {
     //State

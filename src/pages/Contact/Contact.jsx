@@ -5,13 +5,11 @@ import {db} from "../../firebase"
 
 //Components
 import Dropdown from '../../components/dropdown/Dropdown';
-import CourseContact from './components/coursemodule/CourseContact';
-import ModuleContact from './components/coursemodule/ModuleContact';
-import GenericContact from './GenericContact';
-import RadioButton from '../../components/radiobutton/RadioButton';
+import GenericContact from './components/GenericContact';
 
 //CSS
 import './contact.css'
+import CourseModuleContact from './components/CourseModuleContact';
 
 const Contact = () => {
     //State
@@ -32,7 +30,8 @@ const Contact = () => {
     if(selectedCategory === defaultCategory) {
         nextOptions = null;
     } else if(selectedCategory === "Course or Module") {
-        nextOptions = <CourseContact/>
+        // nextOptions = <CourseContact/>
+        nextOptions = <CourseModuleContact/>
     } else {
         nextOptions = <GenericContact category={selectedCategory}/>
     }

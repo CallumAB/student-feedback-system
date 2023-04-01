@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import RadioButton from '../../components/radiobutton/RadioButton';
+import RadioButton from '../../../components/radiobutton/RadioButton';
 import {collection, getDocs} from "firebase/firestore";
-import {db} from "../../firebase"
-import ContactCard from './components/displaycontacts/ContactCard';
+import {db} from "../../../firebase"
+import ContactCard from './ContactCard';
 
 
 const GenericContact = (props) => {

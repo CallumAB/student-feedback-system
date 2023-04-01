@@ -1,5 +1,5 @@
 import React from 'react';
-import PrimaryButton from '../../../../components/PrimaryButton';
+import PrimaryButton from '../../../components/PrimaryButton';
 
 const ContactCard = (props) => {
   return (
