@@ -1,11 +1,10 @@
 //React && Firebase
 import React, {useState, useEffect} from 'react';
-import {collection, doc, getDocs} from "firebase/firestore";
-import {db} from "../../firebase"
 
 //Components
 import Dropdown from '../../components/dropdown/Dropdown';
 import GenericContact from './components/GenericContact';
+import ContactCard from './components/ContactCard';
 
 //CSS
 import './contact.css'
@@ -30,22 +29,27 @@ const Contact = () => {
     if(selectedCategory === defaultCategory) {
         nextOptions = null;
     } else if(selectedCategory === "Course or Module") {
-        // nextOptions = <CourseContact/>
         nextOptions = <CourseModuleContact/>
+    } else if(selectedCategory === "Other"){
+        nextOptions = <ContactCard 
+        title = "Other" 
+        description = "We're sorry we are unable to provide you with a contact. Please contact the details below to be guided to the help you need."
+        email = "email@email.com"
+        number = "0123456789"/>
     } else {
         nextOptions = <GenericContact category={selectedCategory}/>
     }
 
-    //Return
+    //Return    
     return (
-        <div className="contact-page">
+        <main className="contact-page">
             <h3>Contact</h3>
             <p>What is your reason for contacting?</p>
             <h4>Select a category:</h4>
             <Dropdown text={selectedCategory} items={options} buttonClick={reasonClick}></Dropdown>
             {nextOptions}
-        </div>
+        </main>
     )
 }
 
-export default Contact
+export default Contact;

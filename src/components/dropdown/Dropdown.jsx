@@ -15,7 +15,6 @@ const Dropdown = (props) => {
         setOpen(!open);
     }
 
-    
     //Element Variables
     const dropDownItems =
         <ul className="dropdown-list" >
@@ -24,8 +23,7 @@ const Dropdown = (props) => {
                 <li key={item} onClick={handleClick}>{item}</li>
             )}
         </ul>
-
-
+        
     //Return
     return (   
         <div className="dropdown-container">

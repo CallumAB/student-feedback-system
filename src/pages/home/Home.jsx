@@ -1,7 +1,4 @@
 import React from 'react';
-import {  signOut } from "firebase/auth";
-import { auth } from '../../firebase';
-import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 
@@ -18,31 +15,19 @@ import surveySvg from './SVGS/survey.svg';
 
 const Home = () => {
 
+    //State
     const { user } = UserAuth();
     console.log("Home", user)
 
-    const navigate = useNavigate();
-    const handleLogout = () => {               
-        signOut(auth).then(() => {
-        // Sign-out successful.
-            navigate("/login");
-            console.log("Signed out successfully")
-        }).catch((error) => {
-        // An error happened.
-        });
-    }
-
     return(
-            <div>
-                <div className="header">
+            <main>
+                <header className="header">
                     <h2>Student help</h2>
                     <h2>& feedback</h2>
                     <p>Get in contact with the correct people for whatever problem you may have and complete student surveys.</p>
+                </header>
 
-                </div>
-
-
-                <div className="body">
+                <section className="body">
                     <h1>Get in contact</h1>
                     <div className="homepage-block">
                         <div>
@@ -54,9 +39,10 @@ const Home = () => {
                         </Link>
                         </div>
                         <img src={contactSvg} alt="Contact graphic"/>
-                        
                     </div>
+                </section>
 
+                <section className="body">
                     <h1>Student Surveys</h1>
                     <div className="homepage-block">
                         <div>
@@ -66,16 +52,9 @@ const Home = () => {
                             </Link>
                         </div>
                         <img src={surveySvg} alt="Survey graphic"/>
-
                     </div>
-                </div>
-
-                
-
-                {/* <div>
-                    <Secondarybutton onClick={handleLogout} text="Logout"/>
-        		</div> */}
-            </div>
+                </section>
+            </main>
     )
 }
  

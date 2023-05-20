@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PrimaryButton from '../../../components/PrimaryButton';
 import RadioButton from '../../../components/radiobutton/RadioButton';
 import Secondarybutton from '../../../components/SecondaryButton';
+import {db} from "../../../firebase"
+import {collection, doc, getDocs} from "firebase/firestore";
 
 const TakeSurvey = (props) => {
 
@@ -11,6 +13,9 @@ const TakeSurvey = (props) => {
   const [openInput, setOpenInput] = useState("");
   const [radioButtonValue, setRadioButtonValue] = useState(null);
   const [surveyResults] = useState([]);
+  const [quizFinished, setQuizFinished] = useState(false);
+
+  //Upload results
 
 
   //Helper functions
@@ -26,10 +31,41 @@ const TakeSurvey = (props) => {
       surveyResults[currentQuestionIndex] = {
         question: props.surveyData.questions[currentQuestionIndex].questiontext,
         answer: radioButtonValue,
+        attribute: props.surveyData.questions[currentQuestionIndex].attribute,
       }
       console.log("These are the survey results", surveyResults)
     } else {
     }
+  }
+
+  const finishQuiz = () => {
+    updateResults();
+    console.log("End of quiz");
+    console.log(surveyResults);
+    setQuizFinished(!quizFinished)
+
+    //Upload results
+    const docRef = db.doc('/courses/compsci/modules/Distributed Systems');
+    // const docRef = db.doc('/courses/' + props.coursetitle +'/modules/' + props.moduletitle);
+
+    // Retrieve the current responses array from Firestore
+    docRef.get().then((doc) => {
+        const currentResponses = doc.data().responses || [];
+        const updatedResponses = [...currentResponses, ...surveyResults];
+
+        // Update the responses array with the new survey results
+        docRef.update({
+            responses: updatedResponses,
+          }).then(() => {
+            console.log('Survey results added successfully!');
+          }).catch((error) => {
+            console.error('Error adding survey results:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error retrieving current responses:', error);
+      });
+
   }
 
   const nextQuestion = () => {
@@ -79,21 +115,31 @@ const TakeSurvey = (props) => {
     fontSize = "1rem"
     text = "Finish"
     width = "100%"
-    onClick = {nextQuestion}
+    onClick = {finishQuiz}
     />
   }
 
   //Return
   return (
     <div>
+
       <h3>{props.surveyData.surveytitle}</h3>
-      <p>{props.surveyData.questions[currentQuestionIndex].questiontext}</p>
-      <div className="question-options">{displayAnswers}</div>
+      {quizFinished === false
+      ?
+      <form>
+        <p>{props.surveyData.questions[currentQuestionIndex].questiontext}</p>
+        <div className="question-options">{displayAnswers}</div>
+        <div>
+          {nextButton}
+          <Secondarybutton text="Back" width="100%" onClick={previousQuestion}/>
+        </div>
+      </form>
+      :
       <div>
-        {nextButton}
-        <Secondarybutton text="Back" width="100%" onClick={previousQuestion}/>
+        <p>Quiz complete!</p>
+        <p>Thank you for completing the survey</p>
       </div>
-      
+    }
     </div>
   )
 }

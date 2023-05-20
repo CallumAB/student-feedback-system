@@ -3,6 +3,7 @@ import Signup from "./pages/Signup"
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Contact from "./pages/contact/Contact"
+import Chat from "./pages/chat/Chat";
 import Survey from "./pages/surveys/Survey"
 import {Routes, Route} from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
@@ -11,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import FindSurvey from "./pages/surveys/components/FindSurvey";
 
 import './globals.css'
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
               <Route path='/' element={<Home/>}/>
               <Route path='/home' element={<Home/>}/>
               <Route path='/contact' element={<ProtectedRoute><Contact/></ProtectedRoute>}/>   
+              <Route path='/chat' element={<ProtectedRoute><Chat/></ProtectedRoute>}/>   
               <Route path='/survey' element={<ProtectedRoute><Survey/></ProtectedRoute>}/>
         </Routes>
       </AuthProvider>

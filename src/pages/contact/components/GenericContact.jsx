@@ -77,7 +77,7 @@ const GenericContact = (props) => {
         )
 
     return (
-        <div>
+        <section>
             <h4>Select a problem:</h4>
             <RadioButton onClick={radioButtonClick} options={problemOptions}/>
             {selectedProblem !== defaultProblem
@@ -88,7 +88,7 @@ const GenericContact = (props) => {
             </div>
             : null
             }
-        </div>
+        </section>
     )
 }
 

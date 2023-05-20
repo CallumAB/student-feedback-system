@@ -6,7 +6,6 @@ import {db} from "../../firebase"
 //Components 
 import Dropdown from './Dropdown';
 
-
 const ModuleDropdown = (props) => {
 
     //State
@@ -14,8 +13,6 @@ const ModuleDropdown = (props) => {
     const [selectedModule, setSelectedModule] = useState(defaultModuleValue);
     const [modulesData, setModulesData] = useState([]);
     const [moduleOptions, setModuleOptions] = useState([]);
-
-    
 
     //Data  
         //Reads all available course documents from db
@@ -50,15 +47,12 @@ const ModuleDropdown = (props) => {
         props.callback(getSelectedModuleData(), selectedModule);
     }, [selectedModule])
 
-
     //Helper functions
     const getSelectedModuleData = () => {
         let selectedModuleData = modulesData.find(item => item.moduletitle === selectedModule);
         if(selectedModuleData === undefined){return {}}
         else return selectedModuleData;
     }
-
-
 
     //Callback functions
     const moduleClick = (e) => {
@@ -77,6 +71,5 @@ const ModuleDropdown = (props) => {
         </div>
     )
 }
-
 
 export default ModuleDropdown;

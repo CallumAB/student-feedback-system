@@ -69,7 +69,7 @@ const FindSurvey = (props) => {
   //Element Variables
 
   return (
-    <div>
+    <section>
       <h3>Find Surveys</h3>
       <CourseDropdown
         placeholder={defaultCourseValue}
@@ -87,15 +87,15 @@ const FindSurvey = (props) => {
 
     {/* Display available surveys when both dropdowns are filled */}
     {(selectedCourse !== defaultCourseValue && selectedModule !== defaultModuleValue)
-    ? <div>
+    ? <section>
         <h4>Surveys...</h4>
         {displayCourseSurveys()}
         {displayModuleSurveys()}
-      </div>
+      </section>
     : null
     }
 
-    </div>
+    </section>
   )
 }
 

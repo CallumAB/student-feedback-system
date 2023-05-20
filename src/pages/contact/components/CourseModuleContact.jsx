@@ -29,12 +29,6 @@ const CourseModuleContact = (props) => {
     setSelectedModule(selectedModule);
   }
 
-    //Retrieves surveydata from contact card and starts survey
-  // const startSurvey = (surveyData) => {
-  //   console.log("Find Survey Page: ", surveyData);
-  //   props.callback(surveyData);
-  // }
-
   //Helper functions
   const displayCourseContacts = () => {
     if(selectedCourseData.contacts !== undefined){
@@ -70,10 +64,9 @@ const CourseModuleContact = (props) => {
     }
   }
 
-  //Element Variables
-
+  //Return
   return (
-    <div>
+    <section>
       <CourseDropdown
         placeholder={defaultCourseValue}
         callback={courseCallback}
@@ -98,7 +91,7 @@ const CourseModuleContact = (props) => {
     : null
     }
 
-    </div>
+    </section>
   )
 }
 

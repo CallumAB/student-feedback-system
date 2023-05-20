@@ -19,12 +19,18 @@ const Survey = () => {
 
   //Return
   return (
-    <div className="survey-page">
+    <main className="survey-page">
       {surveyStarted
-        ? <TakeSurvey surveyData={surveyData}/>
-        : <FindSurvey callback={startSurvey}/>
+        ? 
+        <section>
+          <TakeSurvey surveyData={surveyData}/>
+        </section>
+        : 
+        <section>
+          <FindSurvey callback={startSurvey}/>
+        </section>
       }
-    </div>
+    </main>
   )
 }
 
